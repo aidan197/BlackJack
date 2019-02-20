@@ -58,16 +58,19 @@ def player_play():
 					cards=player.get_cards(cards)
 					player.set_score()
 					player.set_turn(True)
-				else: 	
+				else:
+					player.set_score() 	
 					player.set_turn(False)
 					dealer.set_turn(True)
 	while dealer.get_turn():
 		dealer.show_cards()
+		player.show_cards()
 		print(dealer.get_score())
 		print(dealer.get_score()<17)
 		while(dealer.get_score()<17):
 			cards=dealer.get_cards(cards)
 			dealer.show_cards()
+			player.show_cards()
 			dealer.set_score()
 			
 		if(int(dealer.get_score())!=int(player.get_score())):	
